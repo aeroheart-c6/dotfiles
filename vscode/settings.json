@@ -1,0 +1,25 @@
+{
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.fontSize": 13,
+    "editor.fontFamily": "Monaspace Krypton",
+    "editor.renderWhitespace": "boundary",
+    "editor.rulers": [120, 150],
+    "editor.tabSize": 4,
+    "editor.tabCompletion": "on",
+
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+
+    "explorer.autoReveal": false,
+    "explorer.incrementalNaming": "smart",
+
+    "workbench.list.openMode": "doubleClick",
+    "workbench.list.smoothScrolling": true,
+    "workbench.localHistory.maxFileEntries": 5,
+    "workbench.settings.useSplitJSON": true,
+    "workbench.tree.expandMode": "doubleClick",
+
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+}

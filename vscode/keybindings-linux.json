@@ -1,0 +1,23 @@
+[
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.terminal.clear",
+        "when": "terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+k tab",
+        "command": "type",
+        "args": { "text": "\t" },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+k ]",
+        "command": "editor.action.indentationToSpaces",
+        "when": "editorTextFocus && !editorReadOnly"
+    },
+    {
+        "key": "ctrl+k [",
+        "command": "editor.action.indentationToTabs",
+        "when": "editorTextFocus && !editorReadOnly"
+    }
+]
