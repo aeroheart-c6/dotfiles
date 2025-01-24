@@ -1,0 +1,51 @@
+```Toml
+format = """$all\
+    $git_branch\
+    $git_state\
+    $status\
+    $fill\
+    $kubernetes\
+    $aws\
+    $line_break\
+    $shell\
+    $character
+"""
+
+right_format = """$cmd_duration"""
+
+[cmd_duration]
+disabled          = false
+format            = 'took [$duration]($style)'
+show_milliseconds = true
+min_time          = 1000
+
+[fill]
+disabled          = false
+symbol            = " "
+
+[username]
+disabled          = false
+format            = '[$user]($style) '
+show_always       = true
+
+[hostname]
+disabled          = false
+format            = ' on [$ssh_symbol$hostname]($style) in '
+ssh_only          = true
+
+[azure]
+disabled          = false
+format            = '[$symbol $subscription]($style)'
+symbol            = '󰠅'
+style             = 'blue bold'
+
+[kubernetes]
+disabled          = false
+format            = '[$symbol $context (\(@$namespace\))]($style)'
+symbol            = '⛵'
+style             = 'green bold'
+
+[status]
+disabled          = false
+format            = '[$symbol $status]($style)'
+```
