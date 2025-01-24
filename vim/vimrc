@@ -1,0 +1,15 @@
+set number
+set showmatch
+
+set background=dark
+
+set expandtab
+set tabstop=4 shiftwidth=4
+set backspace=indent,eol,start
+
+set splitright splitbelow
+
+filetype indent on
+syntax on
+
+highlight LineNr ctermfg=None
