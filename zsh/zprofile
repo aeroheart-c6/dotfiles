@@ -1,0 +1,16 @@
+#==================================================
+# Put this in ~/.zprofile
+#==================================================
+
+# set PATH so it includes user's private bin if it exists
+path=(
+    "$HOME/bin"
+    $path
+)
+
+export PATH
+
+# mount my rclone gdrive folder
+rclone mount --daemon\
+    gdrive-personal:
+    ~/gdrive
