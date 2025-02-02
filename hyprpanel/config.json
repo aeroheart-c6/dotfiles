@@ -1,0 +1,72 @@
+{
+  "theme.font.weight": 400,
+  "theme.font.name": "Monaspace Krypton",
+  "theme.font.label": "Monaspace Krypton",
+  "theme.font.size": "1rem",
+  "theme.bar.buttons.enableBorders": false,
+  "theme.bar.border.location": "none",
+  "theme.bar.menus.menu.dashboard.profile.size": "8.5em",
+  "theme.bar.menus.monochrome": false,
+  "menus.clock.time.military": true,
+  "menus.clock.time.hideSeconds": true,
+  "menus.clock.weather.location": "Singapore",
+  "menus.clock.weather.unit": "metric",
+  "menus.dashboard.shortcuts.enabled": true,
+  "menus.dashboard.directories.enabled": false,
+  "menus.power.showLabel": true,
+  "menus.power.confirmation": true,
+  "menus.transition": "crossfade",
+  "notifications.position": "top",
+  "notifications.monitor": 1,
+  "bar.customModules.updates.pollingInterval": 1440000,
+  "bar.layouts": {
+    "0": {
+      "left": [
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media",
+        "notifications"
+      ],
+      "right": [
+        "volume",
+        "network",
+        "bluetooth",
+        "systray",
+        "clock",
+        "dashboard"
+      ]
+    },
+    "1": {
+      "left": [
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [],
+      "right": []
+    },
+    "2": {
+      "left": [
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [],
+      "right": []
+    }
+  },
+  "menus.dashboard.controls.enabled": true,
+  "menus.dashboard.stats.interval": 2000,
+  "menus.dashboard.shortcuts.left.shortcut1.icon": "",
+  "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Spotify",
+  "menus.dashboard.shortcuts.left.shortcut1.command": "spotify-launcher",
+  "menus.dashboard.shortcuts.left.shortcut2.icon": "",
+  "menus.dashboard.shortcuts.left.shortcut2.tooltip": "Discord",
+  "menus.dashboard.shortcuts.left.shortcut2.command": "discord",
+  "menus.dashboard.shortcuts.left.shortcut3.icon": "",
+  "menus.dashboard.shortcuts.left.shortcut3.tooltip": "Files",
+  "menus.dashboard.shortcuts.left.shortcut3.command": "nautilus",
+  "menus.dashboard.shortcuts.left.shortcut4.icon": "",
+  "menus.dashboard.shortcuts.left.shortcut4.tooltip": "",
+  "menus.dashboard.shortcuts.left.shortcut4.command": ""
+}
