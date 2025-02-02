@@ -10,7 +10,16 @@ path=(
 
 export PATH
 
+
+unset SSH_AGENT_PID
+
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
+export GPG_TTY=$(tty)
+
+export GOPATH="${HOME}/dev/lib/go"
+
+
 # mount my rclone gdrive folder
 rclone mount --daemon\
-    gdrive-personal:
+    gdrive-personal:\
     ~/gdrive
