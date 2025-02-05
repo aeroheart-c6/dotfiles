@@ -5,9 +5,12 @@ source "./util-logging.zsh"
 
 
 AUR_REPO_URL="https://aur.archlinux.org"
+AUR_PATH_DIR="${HOME}/opt/aur"
 
 
 function install-hyprpanel() {
+    mkdir -p "${AUR_PATH_DIR}"
+
     # These are dependency packages to be installed from `pacman -S`
     packages=(
         json-glib
@@ -62,10 +65,10 @@ function install-aur() {
     name=$1
     main=$2
 
-    echo git clone "${AUR_REPO_URL}/${name}.git" "${name}"
+    echo git clone "${AUR_REPO_URL}/${name}.git" "${AUR_PATH_DIR}/${name}"
 
     echo makepkg\
-        -D "${name}"\
+        -D "${AUR_PATH_DIR}/${name}"\
         -s
 
     archive=$(ls -1 ${name}/*.tar.zst | grep -v debug)
