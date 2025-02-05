@@ -13,20 +13,43 @@ function install-hyprpanel() {
 
     # These are dependency packages to be installed from `pacman -S`
     packages=(
+        autoconf-archive
+        blueprint-compiler
+        cmake
+        dart-sass
+        fftw
+        iniparser
+        glib2
+        glib2-devel
+        gobject-introspection
+        gtk-layer-shell
+        gtk4
+        gtk4-layer-shell
         json-glib
-        pam
-        swww
-        sdl2-compat
-        vala
-        pipewire-jack
+        libglvnd
         libnm
+        libpipewire
+        libpulse
+        meson
+        ncurses
+        npm
+        pam
+        pipewire-jack
+        sdl2-compat
+        sndio
+        swww
+        vala
     )
 
-    echo "pacman -S --asdeps ${packages}"
+    sudo pacman -S\
+        --asdeps\
+        --needed\
+        ${packages}
 
     # These are AUR packages we will manually build
     packages=(
-        "f__appmenu-glib-translator"
+        "f__appmenu-glib-translator-git"
+        "f__libcava"
         "f__libastal-apps-git"
         "f__libastal-auth-git"
         "f__libastal-battery-git"
@@ -45,6 +68,7 @@ function install-hyprpanel() {
         "t__libastal-4-git"
         "t__libastal-git"
         "t__libastal-gjs-git"
+        "f__libastal-meta"
         "t__aylurs-gtk-shell-git"
         "t__ags-hyprpanel-git"
     )
@@ -57,7 +81,7 @@ function install-hyprpanel() {
         echo "[$(date -u --iso-8601=seconds)] Installing ${name}"
 
         install-aur ${name} ${main}
-        # display-pkg ${name}
+        display-pkg ${name}
     done
 }
 
@@ -65,25 +89,31 @@ function install-aur() {
     name=$1
     main=$2
 
-    echo git clone "${AUR_REPO_URL}/${name}.git" "${AUR_PATH_DIR}/${name}"
+    git clone "${AUR_REPO_URL}/${name}.git" "${AUR_PATH_DIR}/${name}"
 
-    echo makepkg\
+    makepkg\
         -D "${AUR_PATH_DIR}/${name}"\
         -s
 
-    archive=$(ls -1 ${name}/*.tar.zst | grep -v debug)
+    archive=$(ls -1 "${AUR_PATH_DIR}/${name}"/*.tar.zst | grep -v debug)
 
     if [ ${main} = "t" ]; then
-        echo pacman -U ${archive}
+        sudo pacman -U\
+            --needed\
+            --noconfirm\
+            ${archive}
     else
-        echo pacman -U --asdeps ${archive}
+        sudo pacman -U\
+            --needed\
+            --noconfirm\
+            --asdeps\
+            ${archive}
     fi
 }
 
 function display-pkg() {
     name=$1
 
-    echo pacman -Q -i "${name}"
+    sudo pacman -Q -i "${name}"
 }
-
 

@@ -26,6 +26,7 @@ function install-essentials() {
         hyprpaper
         hyprpolkitagent
         rofi-wayland
+        wl-clipboard
         xdg-desktop-portal-hyprland
         xdg-desktop-portal-gtk
         xdg-user-dirs
@@ -39,6 +40,8 @@ function install-essentials() {
         gvfs
         zsh
         starship
+
+        go
 
         otf-monaspace
         otf-monaspace-nerd
