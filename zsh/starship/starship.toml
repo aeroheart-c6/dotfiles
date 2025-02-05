@@ -1,16 +1,27 @@
-format = """$all\
+format = """$username\
+    $hostname\
+    $directory\
     $git_branch\
     $git_state\
-    $status\
     $fill\
     $kubernetes\
-    $aws\
+    $line_break  \
+    $python\
     $line_break\
-    $shell\
     $character
 """
 
-right_format = """$cmd_duration"""
+right_format = """\
+    $cmd_duration\
+    $status\
+"""
+
+add_newline = false
+continuation_prompt = "▶▶ "
+
+
+[line_break]
+disabled          = false
 
 [cmd_duration]
 disabled          = false
@@ -22,6 +33,7 @@ min_time          = 1000
 disabled          = false
 symbol            = " "
 
+
 [username]
 disabled          = false
 format            = '[$user]($style) '
@@ -29,21 +41,28 @@ show_always       = true
 
 [hostname]
 disabled          = false
-format            = ' on [$ssh_symbol$hostname]($style) in '
-ssh_only          = true
+format            = '@ [$ssh_symbol$hostname]($style) in '
+ssh_only          = false
+
 
 [azure]
-disabled          = false
+disabled          = true
 format            = '[$symbol $subscription]($style)'
 symbol            = '󰠅'
 style             = 'blue bold'
 
+[aws]
+disabled          = false
+
 [kubernetes]
 disabled          = false
-format            = '[$symbol $context (\(@$namespace\))]($style)'
+format            = '[$symbol $context]($style)'
 symbol            = '⛵'
 style             = 'green bold'
 
 [status]
 disabled          = false
 format            = '[$symbol $status]($style)'
+
+[shell]
+disabled          = false
