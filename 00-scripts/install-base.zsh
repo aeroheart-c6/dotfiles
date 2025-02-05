@@ -7,6 +7,7 @@ source "./install-hyprpanel.zsh"
 
 function install-essentials() {
     packages=(
+        base-devel
         bluez
         bluez-utils
         git
@@ -45,7 +46,9 @@ function install-essentials() {
         ttf-jetbrains-mono-nerd
     )
 
-    echo pacman -S ${packages}
+    sudo pacman -S\
+        --needed\
+        ${packages}
 }
 
 function main() {
@@ -60,9 +63,9 @@ function main() {
     echo "=============================="
 
     loginfo "Adjusting dconf settings"
-    echo dconf write\
-        "/org/gnome/desktop/interface/gtk-theme"\
-        "'Adwaita'"
+    # echo dconf write\
+    #     "/org/gnome/desktop/interface/gtk-theme"\
+    #     "'Adwaita'"
 
     echo dconf write\
         "/org/gnome/desktop/interface/color-scheme"\
