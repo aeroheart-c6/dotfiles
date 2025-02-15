@@ -44,6 +44,10 @@ disabled          = false
 format            = '@ [$ssh_symbol$hostname]($style) in '
 ssh_only          = false
 
+[directory]
+disabled          = false
+read_only         = ""
+format            = '[$path]($style)[ $read_only]($read_only_style) '
 
 [azure]
 disabled          = true
