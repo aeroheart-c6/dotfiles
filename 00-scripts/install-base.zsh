@@ -24,6 +24,7 @@ function install-essentials() {
         hyprlock
         hypridle
         hyprpaper
+        hyprpicker
         hyprpolkitagent
         rofi-wayland
         wl-clipboard

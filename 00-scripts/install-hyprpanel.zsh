@@ -22,6 +22,7 @@ function install-hyprpanel() {
         glib2
         glib2-devel
         gobject-introspection
+        grim
         gtk-layer-shell
         gtk4
         gtk4-layer-shell
@@ -35,7 +36,9 @@ function install-hyprpanel() {
         npm
         pam
         pipewire-jack
+        scdoc
         sdl2-compat
+        slurp
         sndio
         swww
         vala
@@ -48,6 +51,7 @@ function install-hyprpanel() {
 
     # These are AUR packages we will manually build
     packages=(
+        "f__grimblast-git"
         "f__appmenu-glib-translator-git"
         "f__libcava"
         "f__libastal-apps-git"
