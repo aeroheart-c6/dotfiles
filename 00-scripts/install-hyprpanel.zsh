@@ -133,6 +133,6 @@ function install-aur() {
 function display-pkg() {
     name=$1
 
-    sudo pacman -Q -i "${name}"
+    pacman -Q -i "${name}"
 }
 

@@ -64,7 +64,7 @@ function main() {
 
     loginfo "Installing hyprpanel"
     install-hyprpanel-deps
-    install-hyprpanel
+    install-hyprpanel "${AUR_PATH_DIR}"
 
     echo "=============================="
 
