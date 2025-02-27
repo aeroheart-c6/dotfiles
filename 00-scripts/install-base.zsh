@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 
+source "./conf.zsh"
 source "./util-logging.zsh"
 source "./install-hyprpanel.zsh"
 
@@ -62,6 +63,7 @@ function main() {
     echo "=============================="
 
     loginfo "Installing hyprpanel"
+    install-hyprpanel-deps
     install-hyprpanel
 
     echo "=============================="

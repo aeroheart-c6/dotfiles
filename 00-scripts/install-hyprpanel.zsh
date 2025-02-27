@@ -4,13 +4,7 @@
 source "./util-logging.zsh"
 
 
-AUR_REPO_URL="https://aur.archlinux.org"
-AUR_PATH_DIR="${HOME}/opt/aur"
-
-
-function install-hyprpanel() {
-    mkdir -p "${AUR_PATH_DIR}"
-
+function install-hyprpanel-deps() {
     # These are dependency packages to be installed from `pacman -S`
     packages=(
         autoconf-archive
@@ -49,6 +43,17 @@ function install-hyprpanel() {
         --needed\
         ${packages}
 
+}
+
+function install-hyprpanel() {
+    prefix=${1}
+
+    if [[ -z ${prefix} ]]; then
+        prefix="${AUR_PATH_DIR}"
+    fi
+
+    mkdir -p "${prefix}"
+
     # These are AUR packages we will manually build
     packages=(
         "f__grimblast-git"
@@ -82,9 +87,9 @@ function install-hyprpanel() {
         main=${parts[1]}
         name=${parts[2]}
 
-        echo "[$(date -u --iso-8601=seconds)] Installing ${name}"
+        loginfo "Installing ${name}"
 
-        install-aur ${name} ${main}
+        install-aur ${name} ${main} ${prefix}
         display-pkg ${name}
     done
 }
@@ -92,14 +97,22 @@ function install-hyprpanel() {
 function install-aur() {
     name=$1
     main=$2
+    prefix=$3
 
-    git clone "${AUR_REPO_URL}/${name}.git" "${AUR_PATH_DIR}/${name}"
+    pkgdir="${prefix}/${name}"
+
+    if [[ -d "${pkgdir}" ]]; then
+        loginfo "Package already installed. Skipping..."
+        return 1
+    fi
+
+    git clone "${AUR_REPO_URL}/${name}.git" "${pkgdir}"
 
     makepkg\
-        -D "${AUR_PATH_DIR}/${name}"\
+        -D "${pkgdir}"\
         -s
 
-    archive=$(ls -1 "${AUR_PATH_DIR}/${name}"/*.tar.zst | grep -v debug)
+    archive=$(ls -1 "${pkgdir}"/*.tar.zst | grep -v debug)
 
     if [ ${main} = "t" ]; then
         sudo pacman -U\
