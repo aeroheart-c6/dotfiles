@@ -102,17 +102,21 @@ function install-aur() {
     pkgdir="${prefix}/${name}"
 
     if [[ -d "${pkgdir}" ]]; then
-        loginfo "Package already installed. Skipping..."
-        return 1
+        loginfo "Package already downloaded. Updating...."
+        git -C "${pkgdir}" restore .
+        git -C "${pkgdir}" fetch -p origin
+        git -C "${pkgdir}" merge --ff origin/master
+    else
+        loginfo "Package not present. Cloning...."
+        git clone "${AUR_REPO_URL}/${name}.git" "${pkgdir}"
     fi
-
-    git clone "${AUR_REPO_URL}/${name}.git" "${pkgdir}"
 
     makepkg\
         -D "${pkgdir}"\
-        -s
+        -C -f -s
 
-    archive=$(ls -1 "${pkgdir}"/*.tar.zst | grep -v debug)
+    archive=$(ls -1 -r "${pkgdir}"/*.tar.zst | grep -v debug | head -n 1)
+    loginfo "Installing package: ${archive}"
 
     if [ ${main} = "t" ]; then
         sudo pacman -U\
