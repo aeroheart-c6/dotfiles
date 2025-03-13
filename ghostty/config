@@ -1,0 +1,10 @@
+font-family = MonaspiceKr Nerd Font Mono
+font-size = 11.0
+
+window-decoration = client
+
+gtk-titlebar = true
+gtk-titlebar-hide-when-maximized = false
+
+config-file = config-bindings
+

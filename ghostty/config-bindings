@@ -1,0 +1,8 @@
+keybind = ctrl+shift+d=new_split:right
+keybind = ctrl+shift+alt+d=new_split:down
+
+keybind = ctrl+shift+s>ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+s>ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+s>ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+s>ctrl+shift+l=goto_split:right
+keybind = ctrl+shift+s>ctrl+shift+plus=equalize_splits
