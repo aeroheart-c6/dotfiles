@@ -20,6 +20,7 @@ function install-hyprpanel-deps() {
         gtk-layer-shell
         gtk4
         gtk4-layer-shell
+        jq
         json-glib
         libglvnd
         libnm
@@ -28,6 +29,7 @@ function install-hyprpanel-deps() {
         meson
         ncurses
         npm
+        oniguruma
         pam
         pipewire-jack
         scdoc
