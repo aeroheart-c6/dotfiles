@@ -104,14 +104,20 @@ function install-aur() {
     pkgdir="${prefix}/${name}"
 
     if [[ -d "${pkgdir}" ]]; then
-        loginfo "Package already installed. Skipping..."
-        return 1
+        loginfo "Package already installed. Updating..."
+        git -C "${pkgdir}" fetch origin
+        git -C "${pkgdir}" merge origin/master --ff
+    else
+        loginfo "Package is new. Cloning..."
+        git clone "${AUR_REPO_URL}/${name}.git" "${pkgdir}"
     fi
 
-    git clone "${AUR_REPO_URL}/${name}.git" "${pkgdir}"
+    return 0
+
 
     makepkg\
         -D "${pkgdir}"\
+        -f\
         -s
 
     archive=$(ls -1 "${pkgdir}"/*.tar.zst | grep -v debug)
