@@ -8,6 +8,7 @@ function install-hyprpanel-deps() {
     # These are dependency packages to be installed from `pacman -S`
     packages=(
         autoconf-archive
+        brightnessctl
         blueprint-compiler
         cmake
         dart-sass
@@ -23,6 +24,7 @@ function install-hyprpanel-deps() {
         jq
         json-glib
         libglvnd
+        libgtop
         libnm
         libpipewire
         libpulse
@@ -37,6 +39,7 @@ function install-hyprpanel-deps() {
         slurp
         sndio
         swww
+        unzip
         vala
     )
 
@@ -112,9 +115,6 @@ function install-aur() {
         git clone "${AUR_REPO_URL}/${name}.git" "${pkgdir}"
     fi
 
-    return 0
-
-
     makepkg\
         -D "${pkgdir}"\
         -f\
@@ -138,7 +138,6 @@ function install-aur() {
 
 function display-pkg() {
     name=$1
-
     pacman -Q -i "${name}"
 }
 

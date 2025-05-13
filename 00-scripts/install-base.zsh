@@ -34,7 +34,6 @@ function install-essentials() {
         xdg-user-dirs
 
         firefox
-        kitty
         nautilus
         sushi
         gnome-font-viewer
@@ -46,7 +45,6 @@ function install-essentials() {
         go
 
         otf-monaspace
-        otf-monaspace-nerd
         ttf-jetbrains-mono
         ttf-jetbrains-mono-nerd
     )
@@ -68,14 +66,14 @@ function main() {
 
     echo "=============================="
 
-    loginfo "Adjusting dconf settings"
+    # loginfo "Adjusting dconf settings"
     # echo dconf write\
     #     "/org/gnome/desktop/interface/gtk-theme"\
     #     "'Adwaita'"
 
-    echo dconf write\
-        "/org/gnome/desktop/interface/color-scheme"\
-        "'prefer-dark'"
+    # dconf write\
+    #     "/org/gnome/desktop/interface/color-scheme"\
+    #     "'prefer-dark'"
 }
 
 main ${@}
