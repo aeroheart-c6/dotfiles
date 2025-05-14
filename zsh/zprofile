@@ -12,13 +12,6 @@ export PATH
 
 
 #==================================================
-# SSH
-#==================================================
-unset SSH_AGENT_PID
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
-export GPG_TTY=$(tty)
-
-#==================================================
 # Golang
 #==================================================
 export GOPATH="${HOME}/dev/lib/go"
