@@ -10,12 +10,17 @@ path=(
 
 export PATH
 
+# This is for when using GDM
+if [ -f "$HOME/.profile" ]; then
+    . "$HOME/.profile"
+fi
+
 
 #==================================================
-# Golang
+# Development Kits
 #==================================================
 export GOPATH="${HOME}/dev/lib/go"
-
+export SDKMAN_DIR="${HOME}/dev/lib/sdkman"
 
 # mount my rclone gdrive folder
 rclone mount --daemon\
