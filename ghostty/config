@@ -8,3 +8,4 @@ gtk-titlebar-hide-when-maximized = false
 
 config-file = config-bindings
 
+shell-integration-features = sudo
