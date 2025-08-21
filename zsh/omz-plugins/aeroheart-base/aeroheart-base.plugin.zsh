@@ -1,3 +1,3 @@
 # General Aliases
 
-alias ls="ls --color=always --group-directories-first"
+alias ls="LC_ALL=C ls --color=always --group-directories-first"

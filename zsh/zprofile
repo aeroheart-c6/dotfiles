@@ -2,26 +2,31 @@
 # Put this in ~/.zprofile
 #==================================================
 
-# set PATH so it includes user's private bin if it exists
+# When not using GDM
+# Set PATH so it includes user's private bin if it exists
 path=(
-    "$HOME/bin"
+    "${HOME}/bin"
     $path
 )
 
 export PATH
 
-# This is for when using GDM
-if [ -f "$HOME/.profile" ]; then
-    . "$HOME/.profile"
+# When using GDM
+# Set path from .profile because GDM loads env vars from there instead of directly reading ~/.zprofile
+if [ -f "${HOME}/.profile" ]; then
+    emulate sh -c "source ${HOME}/.profile"
 fi
 
 
-#==================================================
+# When using GDM, put these in ~/.profile
 # Development Kits
-#==================================================
 export GOPATH="${HOME}/dev/lib/go"
 export SDKMAN_DIR="${HOME}/dev/lib/sdkman"
+export RUSTUP_HOME="${HOME}/dev/lib/rust/rustup"
+export CARGO_HOME="${HOME}/dev/lib/rust/cargo"
 
+
+# Not sure how this would work with GDM...
 # mount my rclone gdrive folder
 rclone mount --daemon\
     gdrive-personal:\
